@@ -2,9 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Beetl</title>
+    <title>Title</title>
 </head>
 <body>
-    ${message}
+@for(user in userList){
+email is ${user.username}\@163.com <br/>
+@}
 </body>
 </html>

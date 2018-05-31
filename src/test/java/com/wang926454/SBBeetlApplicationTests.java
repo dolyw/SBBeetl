@@ -1,4 +1,4 @@
-package cn.wang926454.sbbeetl;
+package com.wang926454;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class SbbeetlApplicationTests {
+public class SBBeetlApplicationTests {
 
     @Test
     public void contextLoads() {

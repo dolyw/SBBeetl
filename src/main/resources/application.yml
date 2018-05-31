@@ -1,0 +1,19 @@
+server:
+    port: 8080
+
+spring:
+    datasource:
+        url: jdbc:mysql://127.0.0.1:3306/sbbeetl?useSSL=false&useUnicode=true&characterEncoding=UTF-8
+        username: root
+        password: root
+        driver-class-name: com.mysql.jdbc.Driver
+
+beetl:
+    suffix: html
+    beetlsql.dev: true
+
+beetlsql:
+    basePackage: com.wang926454.dao
+
+logging:
+    level.com.wang926454: debug

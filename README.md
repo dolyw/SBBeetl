@@ -4,14 +4,16 @@
 
 1. SpringBoot
 2. Beetl视图
+3. 新增BeetlSQL
 
 #### 软件架构
 
-1. SpringBoot + Beetl
+1. SpringBoot + Beetl + BeetlSQL
 
 #### 安装教程
 
-1. 正常启动即可
+1. 解压后执行src\main\resources\mysql\MySQL.sql脚本创建数据库和表
+2. 正常启动即可
 
 #### 使用说明
 

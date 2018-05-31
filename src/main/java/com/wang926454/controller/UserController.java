@@ -1,9 +1,14 @@
 package com.wang926454.controller;
 
+import com.wang926454.dao.UserDao;
+import com.wang926454.model.User;
+import com.wang926454.service.IUserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.List;
 
 /**
  * @Desc
@@ -13,9 +18,17 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class UserController {
 
-    @RequestMapping("/helloWorld")
-    public String hello(Model model){
-        model.addAttribute("message", "HelloWorld");
-        return "index.btl";
+    private final IUserService userService;
+
+    @Autowired
+    public UserController(IUserService userService) {
+        this.userService = userService;
+    }
+
+    @RequestMapping("/")
+    public String index(Model model) {
+        List<User> userList = userService.selectAll();
+        model.addAttribute("userList", userList);
+        return "index.html";
     }
 }
