@@ -5,7 +5,6 @@ import com.wang926454.model.User;
 import com.wang926454.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 /**
@@ -19,7 +18,32 @@ public class UserServiceImpl implements IUserService {
     private UserDao userDao;
 
     @Override
-    public List<User> selectAll() {
-        return userDao.selectAll();
+    public List<User> all(int start, int size) {
+        return userDao.all(start, size);
+    }
+
+    @Override
+    public long allCount() {
+        return userDao.allCount();
+    }
+
+    @Override
+    public void insertTemplate(User user) {
+        userDao.insertTemplate(user);
+    }
+
+    @Override
+    public int updateTemplateById(User user) {
+        return userDao.updateTemplateById(user);
+    }
+
+    @Override
+    public User single(int id) {
+        return userDao.single(id);
+    }
+
+    @Override
+    public int deleteById(int id) {
+        return userDao.deleteById(id);
     }
 }

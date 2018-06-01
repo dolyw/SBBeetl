@@ -8,5 +8,4 @@ import java.util.List;
 
 @SqlResource("UserDao")
 public interface UserDao extends BaseMapper<User> {
-    List<User> selectAll();
 }

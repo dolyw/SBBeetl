@@ -3,12 +3,17 @@ package com.wang926454.controller;
 import com.wang926454.dao.UserDao;
 import com.wang926454.model.User;
 import com.wang926454.service.IUserService;
+import com.wang926454.util.JsonListUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Desc
@@ -26,9 +31,52 @@ public class UserController {
     }
 
     @RequestMapping("/")
-    public String index(Model model) {
-        List<User> userList = userService.selectAll();
-        model.addAttribute("userList", userList);
+    public String index() {
         return "index.html";
+    }
+
+    @ResponseBody
+    @RequestMapping("/getUsers")
+    public Map getUsers(int page, int limit){
+        // 第page页开始，limit条数据
+        int start = (page-1) * limit + 1;
+        int size = page * limit;
+        Map map = new HashMap();
+        map.put("code", "0");
+        //map.put("msg", "");
+        map.put("count", userService.allCount());
+        // all(start, size)查询的是从第start到size条数据
+        map.put("data", userService.all(start, size));
+        return map;
+    }
+
+    @ResponseBody
+    @RequestMapping("/addOrUpdate")
+    public void addUser(User user){
+        if(user.getId() == null){
+            user.setRegtime(new Date());
+            userService.insertTemplate(user);
+        }else{
+            int count = userService.updateTemplateById(user);
+        }
+    }
+
+    @ResponseBody
+    @RequestMapping("/delete")
+    public void delete(String jsons){
+        List<User> users = JsonListUtil.jsonToList(jsons, User.class);
+        for (int i = 0; i < users.size(); i++) {
+            userService.deleteById(users.get(i).getId());
+        }
+    }
+
+    @ResponseBody
+    @RequestMapping("/findById")
+    public Map findById(String jsons){
+        List<User> users = JsonListUtil.jsonToList(jsons, User.class);
+        User user = userService.single(users.get(0).getId());
+        Map map = new HashMap();
+        map.put("obj", user);
+        return map;
     }
 }

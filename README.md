@@ -5,6 +5,7 @@
 1. SpringBoot
 2. Beetl视图
 3. 新增BeetlSQL
+4. 新增LayUI界面，CRUD User
 
 #### 软件架构
 
