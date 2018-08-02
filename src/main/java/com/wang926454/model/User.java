@@ -3,6 +3,11 @@ package com.wang926454.model;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * TODO：
+ * @author Wang926454
+ * @date 2018/8/1 17:56
+ */
 public class User implements Serializable {
 
     private static final long serialVersionUID = -7097812082674545481L;

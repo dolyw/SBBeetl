@@ -41,9 +41,8 @@ public class UserController {
         // 第page页开始，limit条数据
         int start = (page-1) * limit + 1;
         int size = page * limit;
-        Map map = new HashMap();
+        Map map = new HashMap(16);
         map.put("code", "0");
-        //map.put("msg", "");
         map.put("count", userService.allCount());
         // all(start, size)查询的是从第start到size条数据
         map.put("data", userService.all(start, size));
@@ -75,7 +74,7 @@ public class UserController {
     public Map findById(String jsons){
         List<User> users = JsonListUtil.jsonToList(jsons, User.class);
         User user = userService.single(users.get(0).getId());
-        Map map = new HashMap();
+        Map map = new HashMap(16);
         map.put("obj", user);
         return map;
     }
