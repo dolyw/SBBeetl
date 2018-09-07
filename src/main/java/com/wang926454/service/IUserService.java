@@ -11,7 +11,7 @@ import java.util.List;
  */
 public interface IUserService{
     /**
-     * TODO：返回实体对应的一个范围的记录
+     * 返回实体对应的一个范围的记录
      * @param start
 	 * @param size
      * @return java.util.List<com.wang926454.model.User>
@@ -20,7 +20,7 @@ public interface IUserService{
      */
     List<User> all(int start,int size);
     /**
-     * TODO：返回实体在数据库里的总数
+     * 返回实体在数据库里的总数
      * @param 
      * @return long
      * @author Wang926454
@@ -29,7 +29,7 @@ public interface IUserService{
     long allCount();
 
     /**
-     * TODO：插入实体到数据库，对于null值不做处理
+     * 插入实体到数据库，对于null值不做处理
      * @param user
      * @return void
      * @author Wang926454
@@ -38,7 +38,7 @@ public interface IUserService{
     void insertTemplate(User user);
 
     /**
-     * TODO：根据主键更新对象，只有不为null的属性参与更新
+     * 根据主键更新对象，只有不为null的属性参与更新
      * @param user
      * @return int
      * @author Wang926454
@@ -47,7 +47,7 @@ public interface IUserService{
     int updateTemplateById(User user);
 
     /**
-     * TODO：根据主键获取对象，如果对象不存在，返回null
+     * 根据主键获取对象，如果对象不存在，返回null
      * @param id
      * @return com.wang926454.model.User
      * @author Wang926454
@@ -56,7 +56,7 @@ public interface IUserService{
     User single(int id);
 
     /**
-     * TODO：根据主键删除对象，如果对象是复合主键，传入对象本生即可
+     * 根据主键删除对象，如果对象是复合主键，传入对象本生即可
      * @param id
      * @return int
      * @author Wang926454
