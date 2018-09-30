@@ -1,4 +1,4 @@
-package com.wang926454;
+package com.wang;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

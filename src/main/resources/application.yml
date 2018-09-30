@@ -16,7 +16,7 @@ beetl:
     beetlsql.dev: true
 
 beetlsql:
-    basePackage: com.wang926454.dao
+    basePackage: com.wang.dao
 
 logging:
-    level.com.wang926454: debug
+    level.com.wang: debug

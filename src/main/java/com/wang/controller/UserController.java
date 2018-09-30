@@ -1,12 +1,10 @@
-package com.wang926454.controller;
+package com.wang.controller;
 
-import com.wang926454.dao.UserDao;
-import com.wang926454.model.User;
-import com.wang926454.service.IUserService;
-import com.wang926454.util.JsonListUtil;
+import com.alibaba.fastjson.JSONArray;
+import com.wang.model.User;
+import com.wang.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -63,7 +61,7 @@ public class UserController {
     @ResponseBody
     @RequestMapping("/delete")
     public void delete(String jsons){
-        List<User> users = JsonListUtil.jsonToList(jsons, User.class);
+        List<User> users = JSONArray.parseArray(jsons, User.class);
         for (int i = 0; i < users.size(); i++) {
             userService.deleteById(users.get(i).getId());
         }
@@ -72,7 +70,7 @@ public class UserController {
     @ResponseBody
     @RequestMapping("/findById")
     public Map findById(String jsons){
-        List<User> users = JsonListUtil.jsonToList(jsons, User.class);
+        List<User> users = JSONArray.parseArray(jsons, User.class);
         User user = userService.single(users.get(0).getId());
         Map map = new HashMap(16);
         map.put("obj", user);

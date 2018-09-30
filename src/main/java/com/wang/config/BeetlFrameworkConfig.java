@@ -1,4 +1,4 @@
-package com.wang926454.config;
+package com.wang.config;
 
 import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.context.annotation.Bean;

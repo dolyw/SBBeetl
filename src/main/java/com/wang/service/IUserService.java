@@ -1,6 +1,6 @@
-package com.wang926454.service;
+package com.wang.service;
 
-import com.wang926454.model.User;
+import com.wang.model.User;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ public interface IUserService{
      * 返回实体对应的一个范围的记录
      * @param start
 	 * @param size
-     * @return java.util.List<com.wang926454.model.User>
+     * @return java.util.List<com.wang.model.User>
      * @author Wang926454
      * @date 2018/8/1 17:57
      */
@@ -49,7 +49,7 @@ public interface IUserService{
     /**
      * 根据主键获取对象，如果对象不存在，返回null
      * @param id
-     * @return com.wang926454.model.User
+     * @return com.wang.model.User
      * @author Wang926454
      * @date 2018/8/1 17:58
      */

@@ -1,4 +1,4 @@
-package com.wang926454;
+package com.wang;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

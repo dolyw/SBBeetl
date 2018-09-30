@@ -1,6 +1,6 @@
-package com.wang926454.dao;
+package com.wang.dao;
 
-import com.wang926454.model.User;
+import com.wang.model.User;
 import org.beetl.sql.core.annotatoin.SqlResource;
 import org.beetl.sql.core.mapper.BaseMapper;
 

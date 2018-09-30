@@ -1,11 +1,10 @@
-package com.wang926454.service.impl;
+package com.wang.service.impl;
 
-import com.wang926454.dao.UserDao;
-import com.wang926454.model.User;
-import com.wang926454.service.IUserService;
+import com.wang.dao.UserDao;
+import com.wang.model.User;
+import com.wang.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import java.util.List;

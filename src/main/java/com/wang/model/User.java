@@ -1,4 +1,6 @@
-package com.wang926454.model;
+package com.wang.model;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -35,6 +37,7 @@ public class User implements Serializable {
     /**
      * 注册时间
      */
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
     private Date regtime;
 
     /**
