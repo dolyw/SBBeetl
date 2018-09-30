@@ -3,13 +3,11 @@ layui.use('element', function(){
     var element = layui.element;
 });
 // Table
-var util;
-var getListUrl = contextPath + '/getUsers';
-layui.use(['table','util','layer'], function(){
+var tableIns;
+layui.use(['table', 'layer'], function(){
     var table = layui.table;
-    util = layui.util;
     // 第一个实例
-    table.render({
+    tableIns = table.render({
         elem: '#demo',
         id: 'demo'
         // 列宽自动分配
@@ -17,7 +15,7 @@ layui.use(['table','util','layer'], function(){
         ,height: 'full-200'
         ,limits: [5, 15, 30]
         ,limit: 15
-        ,url: getListUrl
+        ,url: contextPath + '/getUsers'
         // 开启分页
         ,page: true
         ,cols: [[
@@ -99,10 +97,10 @@ layui.use(['table','util','layer'], function(){
                             }
                         });*/
                         // 重新加载表格
-                        table.reload('demo', {
+                        tableIns = table.reload('demo', {
                             page: {
-                                // 重新从第1页开始
-                                curr: 1
+                                // 重新定位当前页
+                                curr: tableIns.config.page.curr
                             }/*,where: {
                             key: {
                                 id: demoReload.val()
@@ -181,10 +179,10 @@ layui.use(['table','util','layer'], function(){
                     success: function (data) {
                         layer.msg('修改成功');
                         // 重新加载表格
-                        table.reload('demo', {
+                        tableIns = table.reload('demo', {
                             page: {
-                                // 重新从第1页开始
-                                curr: 1
+                                // 重新定位当前页
+                                curr: tableIns.config.page.curr
                             }
                         });
                     },
@@ -226,10 +224,10 @@ layui.use(['table','util','layer'], function(){
                 success: function (data) {
                     layer.msg('删除成功');
                     // 重新加载表格
-                    table.reload('demo', {
+                    tableIns = table.reload('demo', {
                         page: {
-                            // 重新从第1页开始
-                            curr: 1
+                            // 重新定位当前页
+                            curr: tableIns.config.page.curr
                         }
                     });
                 },
